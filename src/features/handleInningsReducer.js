@@ -15,13 +15,13 @@ const handleInningsReducer = (state) =>{
             state.hostteam.toss='bowling'
             state.localteam.toss='batting'
             
-            state.localteam.isplayerinput=false
+            
             
         }else{
             state.hostteam.toss='batting'
             state.localteam.toss='bowling'
 
-            state.hostteam.isplayerinput=false
+            
             
         }
 

@@ -33,10 +33,11 @@ export default function Win() {
     <>
     <div className="flex items-center justify-center m-6 flex-col">
       
-        <div className="bg-white  h-56  w-80 rounded-lg  p-3 flex flex-col items-center gap-2 justify-center">
+        <div className="bg-white   h-80  w-80 rounded-lg  p-3 flex flex-col items-center gap-2 justify-center">
         
-              <h1 className=" font-normal text-2xl text-green-500">Congratulations</h1>
-              <h1 className=" font-normal text-sm text-green-500">{teams.winner} won by {winMargin}  </h1>
+              <h1 className=" font-normal text-2xl  text-black">Congratulations</h1>
+              <img src=".//public/win.jpg" alt="" className=' w-40 h-40 ' />
+              <h1 className=" font-normal text-sm text-black">{teams.winner} won by {winMargin}  </h1>
               
         </div>
        </div>

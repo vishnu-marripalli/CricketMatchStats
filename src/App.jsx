@@ -11,6 +11,7 @@ import { handleinnings, handlewin, initiallizinginngs } from "./features/Slice"
 import {useEffect} from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import Win from "./Components/Win"
+import Fotter from "./Components/Fotter"
 
 function App() {
 
@@ -66,6 +67,7 @@ function App() {
           <>
           <Navbar />
           <Home />
+          <Fotter />
           </>
         )
       }else if(batteam.isplayerinput===false){
@@ -73,6 +75,7 @@ function App() {
           <>
           <Navbar />
           <Playersinput />
+          <Fotter />
           </>
         )
       }else if(batteam.newbatterinput===true){
@@ -80,6 +83,7 @@ function App() {
           <>
           <Navbar />
           <NewBatter />
+          <Fotter />
           </>
         )
       }else if(ballteam.newbowlerinput===true){
@@ -87,6 +91,7 @@ function App() {
           <>
           <Navbar />
           <NewBowler />
+          <Fotter />
           </>
         )
       }else if((teams.matchStatus === 'completed')){
@@ -104,6 +109,7 @@ function App() {
           <Batsmancard />
           <Bowlercard />
           <Ballupdater />
+          <Fotter />
           {/* <Win /> */}
           </>
         )

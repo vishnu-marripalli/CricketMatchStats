@@ -52,7 +52,7 @@ const [iswicket, setiswicket] = useState(false)
                   onChange={()=> {setiswicket(!iswicket)}}
                    />
             < label htmlFor="Wicket" className=" text-sm text-gray-900">
-            Wickets
+            Wicket
             </label>
           </div>
           <div className="flex flex-row items-center gap-2">
