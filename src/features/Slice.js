@@ -12,6 +12,7 @@ import hadleInputfromHomeReducer from "./InputReducers/hadleInputfromHomeReducer
 import handleInputfromPlayerReducer from "./InputReducers/handleInputfromPlayerReducer";
 import handleInputfromNewbatterReducer from "./InputReducers/handleInputfromNewbatterReducer";
 import handleInputfromNewbowlerReducer from "./InputReducers/handleInputfromNewbowlerReducer";
+import handleWinReducer from "./InputReducers/handleWinReducer";
 
 const initialState = {
   hostteam: {
@@ -30,7 +31,7 @@ const initialState = {
     isplayerinput:false,
     newbatterinput:false,
     newbowlerinput:false,
-    iswon:false,
+    
     Batsman: [],
     Bowler: [
     
@@ -52,7 +53,7 @@ const initialState = {
     isplayerinput:false,
     newbatterinput:false,
     newbowlerinput:false,
-    iswon:false,
+    
     Batsman: [
      
     ],
@@ -78,6 +79,8 @@ const initialState = {
       
     ],
   },
+  matchStatus: 'ongoing', // Possible values: 'ongoing', 'completed'
+  winner: null,
 };
 
 export const Scoreslice = createSlice({
@@ -97,7 +100,7 @@ export const Scoreslice = createSlice({
     handleinputfromplayer:handleInputfromPlayerReducer,
     handleinputfromnewbatter:handleInputfromNewbatterReducer,
     handleinputfromnewbowler:handleInputfromNewbowlerReducer,
-    handlewin:handleWickectReducer
+    handlewin:handleWinReducer
    
   }
 });

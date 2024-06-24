@@ -17,6 +17,7 @@ const handleEachBallReducer = (state, action) => {
     }else{
       team.CRR=parseFloat(team.score/overs).toFixed(2)
     }
+
    
   };
   

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import {React,useState,useEffect} from 'react'
-import { handleeachball, handlebatsmanscore, handleover, switchbatsman, handlewicket,handlebowler, switchbowler } from '../features/Slice'
+import { handleeachball, handlebatsmanscore, handleover, switchbatsman, handlewicket,handlebowler, switchbowler, handlewin } from '../features/Slice'
 import { useDispatch } from 'react-redux'
 
 export default function Ballupdater() {
@@ -29,11 +29,12 @@ const [iswicket, setiswicket] = useState(false)
         console.log('no w')
       dispatch(handlebowler(value))
       }
-
+      
   }
   useEffect(() => {
     dispatch(switchbowler())
-  
+    
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [handleclick])
 
@@ -63,8 +64,8 @@ const [iswicket, setiswicket] = useState(false)
             </label>
           </div>
 
-          <button type="button" className=" bg-green-400 p-1 text-white rounded-md text-sm  w-28"  >Undo</button>
-          <button type="button" onClick={()=> dispatch(switchbatsman())} className=" bg-green-400 p-1 text-white rounded-md text-sm w-28"  >Swap batsman</button>
+          {/* <button type="button" className=" bg-green-400 p-1 text-white rounded-md text-sm  w-28"  >Undo</button> */}
+          <button type="button" onClick={()=> dispatch(switchbatsman())} className=" col-span-2 bg-green-400 p-1 text-white rounded-md text-sm w-28"  >Swap batsman</button>
 
         </div>
       </div>

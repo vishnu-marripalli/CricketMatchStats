@@ -1,27 +1,55 @@
-const handleWinReducer = (state) =>{
+const handleWinReducer = (state) => {
+  const { hostteam, localteam } = state;
 
+  // Helper function to determine if a team has won
+  const determineWinner = (battingTeam, bowlingTeam) => {
+    // If the team batting second exceeds the first team's score
+    if (bowlingTeam.score > battingTeam.score) {
+      return bowlingTeam.name;
+    }
+    
+    // If the team batting second is all out and hasn't exceeded the first team's score
+    if (bowlingTeam.wickets >= bowlingTeam.totalwickets && bowlingTeam.score <= battingTeam.score) {
+      return battingTeam.name;
+    }
 
-    const { hostteam, localteam } = state;
-    const batteam = hostteam.firstinnings === 'batting' ? hostteam : localteam;
-      const ballteam = hostteam.firstinnings === 'batting' ? localteam : hostteam;
-      if (batteam.firstinnings === 'batting') {
-        if (ballteam.score > batteam.score && batteam.score > 1) {
-          ballteam.iswon = true;
-          batteam.iswon = false;
-        } else if (batteam.score >= ballteam.score) {
-          batteam.iswon = true;
-          ballteam.iswon = false;
-        }
-      } else {
-        if (ballteam.score > batteam.score) {
-          ballteam.iswon = true;
-          batteam.iswon = false;
-        } else if (batteam.score >= ballteam.score && ballteam.score > 1) {
-          batteam.iswon = true;
-          ballteam.iswon = false;
-        }
-      }
+    return null;
+  };
 
+  // Logic for checking the winner based on innings and current scores
+  let winner = null;
+  if (hostteam.firstinngings === "batting") {
+    winner = determineWinner(hostteam, localteam);
+    console.log('hs')
+  } else {
+    winner = determineWinner(localteam, hostteam);
+    console.log('hs 2')
+  }
+
+  if (winner) {
+    
+            
+    return {
+      ...state,
+      matchStatus: 'completed',
+      winner,
+      hostteam: {
+        ...hostteam,
+        isplayerinput: true,
+        newbatterinput: false,
+        newbowlerinput:false,
+
+      },
+      localteam: {
+        ...localteam,
+        isplayerinput: true,
+        newbatterinput: false,
+        newbowlerinput:false,
+      },
+    };
+  }
+
+  return state;
       
 
 

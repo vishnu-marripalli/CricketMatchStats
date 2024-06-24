@@ -11,7 +11,7 @@ const handleInningsReducer = (state) =>{
     if(team.totalballs=== team.totalovers*6 || team.totalwickets=== team.wickets){
         
         
-        if(state.hostteam.toss=='batting' || state.localteam.toss=='bowling'){
+        if(state.hostteam.toss=='batting' || state.localteam.toss=='bowling' && state.matchStatus!== 'completed'){
             state.hostteam.toss='bowling'
             state.localteam.toss='batting'
             
@@ -20,14 +20,17 @@ const handleInningsReducer = (state) =>{
         }else{
             state.hostteam.toss='batting'
             state.localteam.toss='bowling'
+
             state.hostteam.isplayerinput=false
             
         }
 
     }
    
+  }
+        
       
 
-}
+
 
 export default handleInningsReducer

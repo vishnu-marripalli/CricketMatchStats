@@ -34,12 +34,16 @@ function App() {
       useEffect(() => {
 
         
-        if(batteam.totalballs!==0){ 
+        if(teams.matchStatus !== 'completed'){ 
+          dispatch(handlewin())
           dispatch(handleinnings())
+          console.log('in e')
+          console.log(teams)
+          
           
           
         }
-      }, [batteam.totalballs,dispatch,ballteam.totalballs])
+      }, [batteam.totalballs, dispatch, teams.matchStatus])
       
       // useEffect(() => {
 
@@ -85,7 +89,7 @@ function App() {
           <NewBowler />
           </>
         )
-      }else if(batteam.iswon===true || ballteam.iswon===true){
+      }else if((teams.matchStatus === 'completed')){
         return(
           <>
           <Win />
@@ -100,6 +104,7 @@ function App() {
           <Batsmancard />
           <Bowlercard />
           <Ballupdater />
+          {/* <Win /> */}
           </>
         )
       }

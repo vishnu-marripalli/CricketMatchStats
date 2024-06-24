@@ -7,7 +7,7 @@ const handleWickectReducer = (state) =>{
          team = state.localteam
       }
 
-      
+
       team.wickets +=1
       const hasnone = team.Batsman.find(e => e.type === 'none');
       if(!hasnone){
@@ -17,10 +17,6 @@ const handleWickectReducer = (state) =>{
          console.log('last wicket')
       }
 
-      
-         
-      
-       
    }
 
 export default handleWickectReducer

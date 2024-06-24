@@ -36,6 +36,7 @@ export default function Home() {
 
     const handleclick = () =>{
         dispatch(handleinputfromhome(match))
+        console.log(match)
     }
     
 
